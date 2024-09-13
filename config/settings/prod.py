@@ -8,9 +8,9 @@ environ.Env.read_env(str(BASE_DIR / ".env.prod"))
 SECRET_KEY = env.str("SECRET_KEY")
 DEBUG = env.bool("DEBUG")
 
-ALLOWED_HOSTS = ["mini-django-railway-production.up.railway.app"]
+ALLOWED_HOSTS = ["lasserailway-production.up.railway.app"]
 CSRF_TRUSTED_ORIGINS = [
-    "https://mini-django-railway-production.up.railway.app"
+    "lasserailway-production.up.railway.app"
 ]  # modify later
 
 MIDDLEWARE = MIDDLEWARE + ["whitenoise.middleware.WhiteNoiseMiddleware"]
@@ -41,8 +41,8 @@ STATICFILES_DIRS = (str(BASE_DIR / "static"),)
 # Connect to our database remotely
 import dj_database_url
 
-DATABASE_URL = env.str("DATABASE_URL")
+DATABASE_PUBLIC_URL = env.str("DATABASE_PUBLIC_URL")
 
 DATABASES = {
-    "default": dj_database_url.config(default=DATABASE_URL),
+    "default": dj_database_url.config(default=DATABASE_PUBLIC_URL),
 }
